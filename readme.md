@@ -63,7 +63,7 @@ This database has approximately 500 records where there is information about the
 
 ![Bestselling books amazon](./img/Picture1.png)
 
-Based on this information, examples of e-commerce business model databases were reviewed to get an idea of what the most important entities should be when designing a database of this type.
+Based on this information, [examples] (https://fabric.inc/blog/ecommerce-database-design-example/) of [e-commerce business](http://www.webassist.com/tutorials/Free-eCommerce-MySQL-Database) model [databases](https://github.com/runninguru/MySQL-eCommerce) were reviewed to get an idea of what the most important entities should be when designing a database of this type.
 
 Based on these examples, it was concluded that, in order to correctly capture the business flow of an e-commerce firm, it was necessary to formulate entities such as: customers or users, orders, suppliers, payment methods, discounts, etc.
 
