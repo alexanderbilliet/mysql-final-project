@@ -57,13 +57,13 @@ Please feel free to reach out to me if you have any questions or comments. Thank
 
 The theme chosen to develop the database is to simulate an e-commerce company dedicated to the purchase of books from publishers/companies and their subsequent resale, through its website, to end consumers or other reseller companies. 
 
-The list of products that this company is dedicated to commercialize (books) was taken from the database of the top 50 bestselling books by Amazon from 2009 to 2019: ["Amazon Top 50 Bestselling Books 2009 - 2019"](https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019). 
+The list of products that this company is dedicated to commercialize (books) was taken from the database of the top 50 bestselling books by Amazon from 2009 to 2019: [Amazon Top 50 Bestselling Books 2009 - 2019](https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019). 
 
 This database has approximately 500 records where there is information about the book, author, user rating, number of reviews, price, year, genre, etc.
 
 ![Bestselling books amazon](./img/Picture1.png)
 
-Based on this information, [examples] (https://fabric.inc/blog/ecommerce-database-design-example/) of [e-commerce business](http://www.webassist.com/tutorials/Free-eCommerce-MySQL-Database) model [databases](https://github.com/runninguru/MySQL-eCommerce) were reviewed to get an idea of what the most important entities should be when designing a database of this type.
+Based on this information, [examples](https://fabric.inc/blog/ecommerce-database-design-example/) of [e-commerce business](http://www.webassist.com/tutorials/Free-eCommerce-MySQL-Database) model [databases](https://github.com/runninguru/MySQL-eCommerce) were reviewed to get an idea of what the most important entities should be when designing a database of this type.
 
 Based on these examples, it was concluded that, in order to correctly capture the business flow of an e-commerce firm, it was necessary to formulate entities such as: customers or users, orders, suppliers, payment methods, discounts, etc.
 
@@ -82,3 +82,14 @@ These CUSTOMERS place ORDERS that in turn contain PRODUCTS that, logically, are 
 On top of this fundamental layer, other dimensions are added such as, for example: credit and debit cards that our CUSTOMERS have registered in our page, PAYMENT METHODS with which our CUSTOMERS will pay for the ORDERS and various DISCOUNTS that our company offers (sometimes based on internal variables such as, for example, quantity discounts or other times discounts on special dates such as Father's or Mother's Day, Book Day, etc.). 
 
 This completed a database that correctly captures a simplified business model.
+
+## Entity - Relationship Diagram
+
+
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="#entity-relationship-diagram"></a>
+
+<!-- Content of the section goes here -->
+
+![Entity - Relationship Diagram](./img/Picture3.png)
+
