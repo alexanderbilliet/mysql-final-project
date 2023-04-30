@@ -55,7 +55,11 @@ Please feel free to reach out to me if you have any questions or comments. Thank
 
 <!-- Content of the section goes here -->
 
-The theme chosen to develop the database is to simulate an e-commerce company dedicated to the purchase of books from publishers/companies and their subsequent resale, through its website, to end consumers or other reseller companies. The list of products that this company is dedicated to commercialize (books) was taken from the database of the top 50 bestselling books by Amazon from 2009 to 2019: "Amazon Top 50 Bestselling Books 2009 - 2019". This database has approximately 500 records where there is information about the book, author, user rating, number of reviews, price, year, genre, etc.
+The theme chosen to develop the database is to simulate an e-commerce company dedicated to the purchase of books from publishers/companies and their subsequent resale, through its website, to end consumers or other reseller companies. 
+
+The list of products that this company is dedicated to commercialize (books) was taken from the database of the top 50 bestselling books by Amazon from 2009 to 2019: "Amazon Top 50 Bestselling Books 2009 - 2019". 
+
+This database has approximately 500 records where there is information about the book, author, user rating, number of reviews, price, year, genre, etc.
 
 ![Bestselling books amazon](./img/Picture1.png)
 
