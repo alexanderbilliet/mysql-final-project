@@ -254,3 +254,34 @@ This returns the view when called with the data loaded:
 
 ![view5](./img/Picture18.png)
 
+### Functions
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="functions"></a>
+
+#### Function # 1 – GANANCIA_PERIODO
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="function-1--ganancia_periodo"></a>
+
+The idea of this function is that it receives two input parameters (start date and end date) and returns the sales profit for that period. 
+What it does is to calculate the sales and subtract the costs of that sold merchandise to show, precisely, the profit of the period that is passed as parameter. 
+It is important to mention that the dates passed as parameter must be "valid".
+To call the function, the start and end dates are passed as parameters as shown below:
+
+![ganancia_periodo](./img/Picture19.png)
+
+Which returns: 
+![ganancia_periodo_return](./img/Picture20.png)
+
+#### Function #2 – CONTAR_TARJETAS
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="function-2--contar_tarjetas"></a>
+
+The function count_cards receive an input parameter "param_card_type" that can be "credit" or "debit" and will return the number of cards that are registered in our database. 
+
+What the function does is to count the number of rows of the CARD table with a count(*) filtering with a WHERE by the column "debit_credit" depending on whether "debit" or "credit" has been entered as parameter.
+
+As shown below, there are 56 credit cards registered and 44 debit cards:
+
+![contar_tarjetas](./img/Picture21.png)
+
+
