@@ -390,5 +390,225 @@ Finally, it is noted that, since the quantity discount (ID_DTO = 1) and the Moth
 
 ![sp3-11](./img/Picture37.png)
 
+### Triggers
+<a name="triggers"></a>
+
+#### Trigger # 1 - log_insercion_proveedor:
+<a name="trigger-1---log_insercion_proveedor"></a>
+
+It is a trigger that after a new record is inserted in the "PROVEEDOR" table, it logs information in the "log_insercion_proveedor" table. The information stored in this last table is the id_proveedor”, “nombre_proveedor”, “tipo_proveedor”, the "user" who added the record, the date and the time. 
+
+This TRIGGER is "AFTER" an "INSERT" event in the "PROVEEDOR" table and basically captures the data already mentioned and saves it as a new record in the " log_insercion_proveedor " table.
+
+To test trigger “log_insercion_proveedor”, we insert 3 new suppliers into the table “PROVEEDOR”:
+
+![t1-1](./img/Picture38.png)
+
+Then we check the table “log_insercion_proveedor” to confirm the trigger has worked ok and added the required registers to the table: 
+
+![t1-2](./img/Picture39.png)
+
+#### Trigger # 2 – chequeo_vacios_proveedor:
+<a name="trigger-2--chequeo_vacios_proveedor"></a>
+
+What this trigger does is to validate BEFORE the INSERT of a record to the "PROVEEDOR" table that the record you are trying to insert meets a certain condition. 
+
+In this case, if the name of the supplier you are trying to INSERT is empty (new.nombre_proveedor = ‘’) then it raises a signal that interrupts the INSERT and sends a message to the user explaining why the INSERT was interrupted.
+
+When an attempt is made to insert an empty supplier name as shown below, Workbench returns the following message:
+
+![t2-1](./img/Picture40.png)
+
+#### Trigger # 3 – trigger_insercion_producto:
+<a name="trigger-3--trigger_insercion_producto"></a>
+
+This trigger basically stores data of the INSERTs that have been made to the table PRODUCTO in the table " tabla_log_insercion_producto" with some particularities. 
+
+Besides storing information about the "user" that performs the INSERT, "the date", "the time", the "book_id" and the "book_name" it also stores the amount of books in the catalog after the INSERT and the new average cost. 
+
+Let's see how it is executed: 
+
+First, the number of different products in the PRODUCTO table and the average costo_compra_libro are looked up, to capture these values BEFORE INSERTING the new record:
+
+![t3-1](./img/Picture41.png)
+
+This results in a book count of 350 whose average purchase value is $13.02:
+
+![t3-2](./img/Picture42.png)
+
+Then proceed to insert a new record in the PRODUCTO table:
+
+![t3-3](./img/Picture43.png)
+
+And it is checked that it has been inserted correctly: 
+
+![t3-4](./img/Picture44.png)
+
+Now we check that the TRIGGER has worked correctly:
+
+![t3-5](./img/Picture45.png)
+
+When calling the " tabla_log_insercion_producto " we get:
+
+![t3-6](./img/Picture46.png)
+
+This shows that all fields have been stored after the INSERT. It is also observed how the number of books has risen to 351 and the average has changed to $13.01 as these two calculations consider the last INSERT. 
+
+Then the record entered into the PRODUCTO table is deleted just to keep the database clean:
+
+![t3-7](./img/Picture47.png)
+
+#### Trigger # 4 – chequeo_producto_prohibido:
+<a name="trigger-4--chequeo_producto_prohibido"></a>
+
+This last TRIGGER is very similar to #2. The TRIGGER is called before an INSERT event in the PRODUCT table and, being of type BEFORE, what it does is to prevent the INSERT in case the author_book of the record is equal to VOLDEMORT (by company policy the incorporation of books written by VOLDEMORT to the catalog is forbidden).
+
+Similarly, the TRIGGER raises a console message to alert the user why the INSERT cannot be carried out.
+
+### Implementation of sentences
+<a name="implementation-of-sentences"></a>
+
+#### Users Creation:
+<a name="users-creation"></a>
+
+The two users (user_1 and user_2) are created, both with the domain "localhost" as local domain and with a password equal to 1234:
+
+![user creation 1](./img/Picture48.png)
+
+Check users were created ok:
+
+![user creation 2](./img/Picture49.png)
+
+We see they have no permissions granted yet:
+
+![user creation 3](./img/Picture50.png)
+
+#### GRANT permits to users:
+<a name="grant-permits-to-users"></a>
+
+user_1 is granted read permissions over the entire database while user_2 is granted read, insert and modify permissions:
+
+![grant permits 1](./img/Picture51.png)
+
+Check granted permits: 
+
+![grant permits 2](./img/Picture52.png)
+
+#### Check how the permits of the DB work:
+<a name="check-how-the-permits-of-the-db-work"></a>
+
+First, two new connections are created in MySQL Workbench for each of the users:
+
+![permits 1](./img/Picture53.png)
+
+In the case of user_1 we see that it can access in read mode (i.e., call information through a SELECT) in all the tables of the DB:
+
+![permits 2](./img/Picture54.png)
+
+But when trying to insert a record we get the following error:
+
+![permits 3](./img/Picture55.png)
+
+In the case of user_2 we can see that he can access in read mode to all tables without problems:
+
+![permits 4](./img/Picture56.png)
+
+In addition, it can perform an INSERT without any problems:
+
+![permits 5](./img/Picture57.png)
+
+And an UPDATE:
+
+![permits 6](./img/Picture58.png)
+
+But when trying to delete the record we get the permission restriction:
+
+![permits 7](./img/Picture59.png)
+
+### Transaction Control Language:
+<a name="transaction-control-language"></a>
+
+#### DELETE from TARJETA table using TCL:
+<a name="delete-from-tarjeta-table-using-tcl"></a>
+
+A DELETE of records from the TARJETA table will be performed using TCL. First, the TARJETA table is called to see what it contains and we see that it has 100 cards registered:
+
+![tcl delete 1](./img/Picture60.png)
+
+For the DELETE with TCL the transaction starts with START TRANSACTION. In the next line the last 3 records are deleted (id = 100, 99, 98), which are not effective until the transaction is closed with a COMMIT. 
+
+Finally, the changes are made effective with the COMMIT statement:
+
+![tcl delete 2](./img/Picture61.png)
+
+The TARJETA table is checked and it is observed that the last 3 records were deleted correctly:
+
+![tcl delete 3](./img/Picture62.png)
+
+#### INSERT records into DESCUENTO table using TCL:
+<a name="insert-records-into-descuento-table-using-tcl"></a>
+
+We proceed to make an INSERT of 8 records to the DESCUENTO table with TCL and implementing SAVEPOINTs.
+
+First, the table is checked before the INSERT and it is observed that there are only 5 records in the table:
+
+![tcl insert 1](./img/Picture63.png)
+
+The INSERT with TCL of the 8 new records is assembled. In addition, a SAVEPOINT (primeros_cuatro_registros) is added after the insertion of the 4th record and another SAVEPOINT (segundos_cuatro_registros) after the insertion of the last 4 records.
+
+![tcl insert 2](./img/Picture64.png)
+
+To demonstrate the operation, still within the TRANSACTION, we call a SELECT and you can see that the 8 records were inserted into the table, but have not yet impacted the database since the TRANSACTION is still open:
+
+![tcl insert 3](./img/Picture65.png)
+
+When doing ROLLBACK TO segundos_cuatro_registros, we return to the same place since this ROLLBACK was added after the INSERT of the 8 records:
+
+![tcl insert 4](./img/Picture66.png)
+
+But when doing the ROLLBACK TO primeros_cuatro_registros and then a SELECT we see that it goes back to the time of the TRANSACTION where only 4 records had been added:
+
+![tcl insert 5](./img/Picture67.png)
+
+Finally, the created SAVEPOINTs are deleted, and the TRANSACTION is closed with a ROLLBACK to avoid impacting the database as seen in the last SELECT:
+
+![tcl insert 6](./img/Picture68.png)
+
+### Backup:
+<a name="backup"></a>
+
+To generate the backup of our database through MySQL Workbench, we go to the "Administration" tab and then to "Data Export":
+
+![backup 1](./img/Picture69.png)
+
+This takes us to the next screen where we choose the database to be exported as well as its tables and views:
+
+![backup 2](./img/Picture70.png)
+
+Select the database of the final project (bbdd_e_commerce), all its tables and in the selector at the bottom right choose "Dump Structure and Data". 
+
+In the "Objects to export" select Store Procedures, functions and Triggers:
+
+![backup 3](./img/Picture71.png)
+
+Finally, and according to the instructions, we export everything to a single file, choose the destination folder where the .sql will be saved and check the "Include Create Schema" option before clicking on "Start Export":
+
+![backup 4](./img/Picture72.png)
+
+The export is checked and it is noted that everything went well:
+
+![backup 5](./img/Picture73.png)
+
+You Will find this file within the repository. 
+
+
+
+
+
+
+
+
+
+
 
 
