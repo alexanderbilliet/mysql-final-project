@@ -169,7 +169,7 @@ List of suppliers that sell products (books) to our company.
 
 ### Data Insert
 <!-- Use hyphens or underscores to separate words in the anchor link below -->
-<a name="#data-insert"></a>
+<a name="data-insert"></a>
 
 <!-- Content of the section goes here -->
 Records in this project were inserted into the database using the MySQL Workbench "Table Data Import Wizard". 
@@ -177,3 +177,80 @@ CSV flat files from which the records were imported are uploaded into this repos
 Given the relationship between primary and foreign keys, the order of import should be as follows:
 
 ![Data import order](./img/Picture13.png)
+
+### Views
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="views"></a>
+
+#### View # 1 – Top 5 Libros más vendidos
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="view--1--top-5-libros-más-vendidos"></a>
+
+<!-- Content of the section goes here -->
+This view offers the 5 best-selling items (books), as well as their respective authors and number of items sold. 
+It is composed of the tables PEDIDO_PRODUCTO and PRODUCTO.
+
+The intuition of this view is to be able to have a query to understand which are the most popular books in sales and to make business decisions, advertising campaigns, etc.
+
+This is what the view returns when called:
+
+![view1](./img/Picture14.png)
+
+#### View # 2 – Top 5 Autores más vendidos
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="view--2--top-5-autores-más-vendidos"></a>
+
+<!-- Content of the section goes here -->
+This view offers the top 5 best-selling authors of books. It is interesting because an author can have more than one book for sale. Therefore, this view brings different information from the previous one. 
+
+It is composed of the tables PEDIDO_PRODUCTO and PRODUCTO.
+
+The intuition of this view is to be able to have a query to understand which are the most popular authors in sales and to make business decisions, advertising campaigns, etc.
+
+This is what the view returns when called:
+![view2](./img/Picture15.png)
+
+#### View # 3 – Facturación y Ganancia por Autor
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="view--3--facturación-y-ganancia-por-autor"></a>
+
+<!-- Content of the section goes here -->
+This view shows the revenue for each author, the cost of goods sold and the gross profit and its respective %. 
+
+In addition, it is decided to show only those authors whose name contains the letter "J" in order to use the LIKE operator.
+
+It is composed of the tables PEDIDO_PRODUCTO and PRODUCTO.
+
+The intuition of this view is to be able to have a query to understand which authors are the most popular in sales and most profitable and make business decisions accordingly.
+
+This returns the view when called with the loaded data:
+![view3](./img/Picture16.png)
+
+#### View # 4 – Descuento Menor Aplicado
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="view--4--descuento-menor-aplicado"></a>
+
+<!-- Content of the section goes here -->
+This view brings a join between two tables to know which orders received the lowest possible discount currently offered by the company. 
+
+The grace of this view is to be able to filter the information with a WHERE without knowing the ID or the name of the lowest discount of the company through a subquery.
+
+It is composed of the tables DESCUENTO_PEDIDO, PEDIDO and makes the subquery to the DESCUENTO table.
+
+This returns the view when called with the loaded data:
+
+![view4](./img/Picture17.png)
+
+#### View # 5 – ocurrencias_descuentos
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="view--5--ocurrencias_descuentos"></a>
+
+<!-- Content of the section goes here -->
+This view counts the occurrences of discounts (DESCUENTO table) on orders (DESCUENTO_PEDIDO table). 
+
+The intuition of this view is to be able to understand how much the DISCOUNTS offered by our company are being applied and based on this to evaluate their effectiveness.
+
+This returns the view when called with the data loaded:
+
+![view5](./img/Picture18.png)
+
