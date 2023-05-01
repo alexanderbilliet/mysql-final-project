@@ -1,6 +1,6 @@
 ## Overview
 
-This is the final project of a MySQL bootcamp completed at [Coderhouse](www.coderhouse.com){:target="_blank"}. The objective of this project was to create a relational database based on a business model, develop objects that allow for maintenance of the database, and implement different SQL queries that generate useful information.
+This is the final project of a MySQL bootcamp completed at <a href="https://www.coderhouse.com/" target="_blank">Coderhouse</a>. The objective of this project was to create a relational database based on a business model, develop objects that allow for maintenance of the database, and implement different SQL queries that generate useful information.
 
 The original project was completed in Spanish. However, comments in English have been added to facilitate reading and understanding. Additionally, this readme file contains explanations that were part of the final project and can be useful for individuals who are new to MySQL.
 
