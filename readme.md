@@ -270,6 +270,7 @@ To call the function, the start and end dates are passed as parameters as shown 
 ![ganancia_periodo](./img/Picture19.png)
 
 Which returns: 
+
 ![ganancia_periodo_return](./img/Picture20.png)
 
 #### Function #2 – CONTAR_TARJETAS
