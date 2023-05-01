@@ -4,7 +4,7 @@ This is the final project of a MySQL bootcamp completed at [Coderhouse](https://
 
 The original project was completed in Spanish. However, comments in English have been added to facilitate reading and understanding. Additionally, this readme file contains explanations that were part of the final project and can be useful for individuals who are new to MySQL.
 
-Please feel free to reach out to me if you have any questions or comments. Thank you!
+Please feel free to [reach out](https://www.linkedin.com/in/alexanderbilliet1990/) to me if you have any questions or comments. Thank you!
 
 ### Index
 
