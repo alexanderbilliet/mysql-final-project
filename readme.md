@@ -315,6 +315,7 @@ Stored Procedure that inserts a new supplier in the PROVEEDOR table. It accepts 
 An IF is added to make sure that the supplier’s name does not already exist in the PROVEEDOR table. In case it already exists, the SP does not add the record and warns by means of a message.
 
 The SP is called as follows:
+
 ![sp2-1](./img/Picture25.png)
 
 And we get that the first 3 records have been added while the last one is not added and a message is raised warning that there is already a supplier with that name in the table:
@@ -343,22 +344,28 @@ In case the ORDER exceeds 10 items, discount # 1 (Quantity discount) will be app
 In this first part of the SP, we first check with an IF that the parameters entered (ID_LIBRO_PARAM, ID_CLIENTE_PARAM y METODO_DE_PAGO_PARAM) previously exist in the database.
 
 If they do not exist, a warning message is raised and the insertion of records is suspended. If they do exist, the script continues:
+
 ![sp3-2](./img/Picture28.png)
 
 Then, it checks if the FECHA_PEDIDO_PARAM matches the date of any of the discounts and stores that information in the variable @ID_DESCUENTO_FECHA. If no date discount is applied then @ID_DESCUENTO_FECHA is set to False:
+
 ![sp3-3](./img/Picture29.png)
 
 The last check is to understand if the quantity discount applies: if CANT_PROD_PARAM is greater than 10 items, then the quantity discount applies and @ID_DESCUENTO_CANTIDAD is stored as "1" (quantity discount ID). If, on the other hand, CANT_PROD_PARAM is less than 10 items, then the quantity discount is not applied and @ID_DESCUENTO_CANTIDAD is stored as False.
+
 ![sp3-4](./img/Picture30.png)
 
 Then we proceed to the INSERT of the PEDIDO/ORDER. A transaction is opened and the first INSERT is given in the PEDIDO table and the second in the PEDIDO_PRODUCTO table:
+
 ![sp3-5](./img/Picture31.png)
 
 Finally, in case there are discounts, these records are inserted in the table DESCUENTO_PEDIDO, as follows:
+
 ![sp3-6](./img/Picture32.png)
 
 We test the SP to verify that it works correctly.
 We see that, prior to using the SP, the PEDIDO table only goes up to ID_PEDIDO = 500:
+
 ![sp3-7](./img/Picture33.png)
 
 We proceed to call the SP passing it as parameters:
