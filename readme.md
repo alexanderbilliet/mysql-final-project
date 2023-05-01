@@ -285,4 +285,103 @@ As shown below, there are 56 credit cards registered and 44 debit cards:
 
 ![contar_tarjetas](./img/Picture21.png)
 
+### Stored Procedures
+<a name="stored-procedures"></a>
+
+#### Stored Procedure #1 – ordenamiento_producto
+<a name="stored-procedure-1--ordenamiento_producto"></a>
+
+Sorts the "product" table by the column you want to use for sorting. It has two input parameters: 
+- "field_to_sort" is the column by which you want to sort the "product" table.
+- "order" is a boolean that accepts 0 for ascending order and 1 for descending order.
+
+The stored procedure on the column "autor_libro" is called:
+![sp1-1](./img/Picture22.png)
+
+And this is what it returns respectively: 
+Table "product" sorted in ascending order by column "author_book".
+![sp1-2](./img/Picture23.png)
+
+Table "product" sorted in descending order by column "author_book":
+![sp1-3](./img/Picture24.png)
+
+#### Stored Procedure #2 – nuevo_proveedor
+<a name="stored-procedure-2--nuevo_proveedor"></a>
+
+Stored Procedure that inserts a new supplier in the PROVEEDOR table. It accepts 2 input parameters: 
+- "param_supplier_name" which will be the name of the supplier to add.
+- param_supplier_type" which will be the type of supplier (SRL, SA, SAS, etc).
+
+An IF is added to make sure that the supplier’s name does not already exist in the PROVEEDOR table. In case it already exists, the SP does not add the record and warns by means of a message.
+
+The SP is called as follows:
+![sp2-1](./img/Picture25.png)
+
+And we get that the first 3 records have been added while the last one is not added and a message is raised warning that there is already a supplier with that name in the table:
+
+![sp2-2](./img/Picture26.png)
+
+#### Stored Procedure # 3 – nuevo_pedido
+<a name="stored-procedure-3--nuevo_pedido"></a>
+
+Stored Procedure that inserts a new ORDER in the tables "PEDIDO", "PEDIDO_PRODUCTO" and "DESCUENTO_PEDIDO"
+It does this through a TRANSACTION since 3 different tables are being impacted. It has 5 parameters: 
+
+1.	"id_libro_param" product being ordered  
+2.	"cant_prod_param" quantity of product being ordered 
+3.	"fecha_pedido_param" date of the order 
+4.	"id_cliente_param" client ID who is placing the order  
+5.	"metodo_de_pago_param" payment method of the order 
+
+In case the product, customer ID or payment method does not exist in the database, the SP will display a message indicating the problem. 
+
+In addition, in case the ORDER date is a special date, the corresponding discount will be automatically applied (Ex: Discount for purchase on "Book Day").
+
+In case the ORDER exceeds 10 items, discount # 1 (Quantity discount) will be applied automatically.
+![sp3-1](./img/Picture27.png)
+
+In this first part of the SP, we first check with an IF that the parameters entered (ID_LIBRO_PARAM, ID_CLIENTE_PARAM y METODO_DE_PAGO_PARAM) previously exist in the database.
+
+If they do not exist, a warning message is raised and the insertion of records is suspended. If they do exist, the script continues:
+![sp3-2](./img/Picture28.png)
+
+Then, it checks if the FECHA_PEDIDO_PARAM matches the date of any of the discounts and stores that information in the variable @ID_DESCUENTO_FECHA. If no date discount is applied then @ID_DESCUENTO_FECHA is set to False:
+![sp3-3](./img/Picture29.png)
+
+The last check is to understand if the quantity discount applies: if CANT_PROD_PARAM is greater than 10 items, then the quantity discount applies and @ID_DESCUENTO_CANTIDAD is stored as "1" (quantity discount ID). If, on the other hand, CANT_PROD_PARAM is less than 10 items, then the quantity discount is not applied and @ID_DESCUENTO_CANTIDAD is stored as False.
+![sp3-4](./img/Picture30.png)
+
+Then we proceed to the INSERT of the PEDIDO/ORDER. A transaction is opened and the first INSERT is given in the PEDIDO table and the second in the PEDIDO_PRODUCTO table:
+![sp3-5](./img/Picture31.png)
+
+Finally, in case there are discounts, these records are inserted in the table DESCUENTO_PEDIDO, as follows:
+![sp3-6](./img/Picture32.png)
+
+We test the SP to verify that it works correctly.
+We see that, prior to using the SP, the PEDIDO table only goes up to ID_PEDIDO = 500:
+![sp3-7](./img/Picture33.png)
+
+We proceed to call the SP passing it as parameters:
+•	id_libro_param = 1
+•	cant_prod_param = 11 
+•	fecha_pedido_param = '2022-10-16'
+•	id_cliente_param = 1
+•	metodo_de_pago = 1
+
+![sp3-8](./img/Picture34.png)
+
+We check the tables to see if the procedure ran correctly. 
+We see that the record appears in the PEDIDO table with ID_PEDIDO = 511 with the parameters we passed above:
+
+![sp3-9](./img/Picture35.png)
+
+The same happens in the PEDIDO_PRODUCTO table where the 11 items of the ID_LIBRO = 1 are reflected:
+
+![sp3-10](./img/Picture36.png)
+
+Finally, it is noted that, since the quantity discount (ID_DTO = 1) and the Mother's Day discount (ID_DTO = 5) apply to this order, both discounts are recorded in the DESCUENTO_PEDIDO table:
+
+![sp3-11](./img/Picture37.png)
+
+
 
