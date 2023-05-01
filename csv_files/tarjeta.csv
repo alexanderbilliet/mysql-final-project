@@ -1,0 +1,101 @@
+﻿ID_TARJETA,DEBITO_CREDITO,BANCO,ID_CLIENTE
+1,CREDITO,Santander Rio SA,26
+2,DEBITO,Provincia de Buenos aires,39
+3,CREDITO,Banco Nacion Argentina,84
+4,CREDITO,Galicia,76
+5,DEBITO,Provincia de Buenos aires,91
+6,DEBITO,Provincia de Buenos aires,123
+7,CREDITO,Banco Frances,89
+8,DEBITO,Galicia,141
+9,DEBITO,Santander Rio SA,126
+10,CREDITO,Galicia,88
+11,CREDITO,Banco Nacion Argentina,122
+12,CREDITO,Galicia,47
+13,DEBITO,Banco Piano,2
+14,DEBITO,Banco Piano,81
+15,DEBITO,Santander Rio SA,109
+16,DEBITO,Banco Frances,17
+17,CREDITO,Banco Nacion Argentina,61
+18,DEBITO,Santander Rio SA,32
+19,CREDITO,Banco Nacion Argentina,131
+20,DEBITO,Banco Frances,164
+21,CREDITO,Banco Nacion Argentina,82
+22,CREDITO,Galicia,48
+23,CREDITO,Santander Rio SA,181
+24,CREDITO,Provincia de Buenos aires,193
+25,CREDITO,Galicia,86
+26,CREDITO,Banco Frances,45
+27,DEBITO,Banco Nacion Argentina,166
+28,CREDITO,Galicia,26
+29,DEBITO,Banco Piano,79
+30,DEBITO,Provincia de Buenos aires,192
+31,CREDITO,Santander Rio SA,68
+32,CREDITO,Provincia de Buenos aires,43
+33,DEBITO,Banco Frances,103
+34,CREDITO,Provincia de Buenos aires,92
+35,DEBITO,Banco Nacion Argentina,96
+36,CREDITO,Provincia de Buenos aires,15
+37,DEBITO,Banco Frances,52
+38,CREDITO,Banco Nacion Argentina,10
+39,DEBITO,Banco Frances,118
+40,DEBITO,Santander Rio SA,28
+41,DEBITO,Santander Rio SA,142
+42,DEBITO,Provincia de Buenos aires,66
+43,CREDITO,Galicia,142
+44,CREDITO,Banco Nacion Argentina,83
+45,DEBITO,Santander Rio SA,68
+46,CREDITO,Banco Frances,107
+47,CREDITO,Provincia de Buenos aires,25
+48,CREDITO,Galicia,106
+49,CREDITO,Santander Rio SA,11
+50,CREDITO,Banco Piano,59
+51,DEBITO,Banco Nacion Argentina,126
+52,DEBITO,Banco Frances,100
+53,DEBITO,Banco Frances,70
+54,CREDITO,Banco Piano,144
+55,CREDITO,Banco Nacion Argentina,24
+56,DEBITO,Banco Nacion Argentina,103
+57,DEBITO,Banco Piano,22
+58,CREDITO,Banco Nacion Argentina,177
+59,DEBITO,Galicia,50
+60,CREDITO,Banco Nacion Argentina,144
+61,DEBITO,Galicia,73
+62,DEBITO,Santander Rio SA,86
+63,CREDITO,Banco Frances,74
+64,DEBITO,Banco Frances,120
+65,DEBITO,Galicia,100
+66,DEBITO,Galicia,83
+67,CREDITO,Santander Rio SA,193
+68,DEBITO,Banco Frances,15
+69,CREDITO,Santander Rio SA,70
+70,CREDITO,Banco Frances,118
+71,DEBITO,Banco Piano,114
+72,DEBITO,Galicia,16
+73,CREDITO,Banco Piano,147
+74,DEBITO,Provincia de Buenos aires,81
+75,CREDITO,Provincia de Buenos aires,115
+76,CREDITO,Galicia,178
+77,CREDITO,Banco Piano,72
+78,DEBITO,Galicia,168
+79,CREDITO,Galicia,69
+80,CREDITO,Banco Frances,34
+81,CREDITO,Banco Frances,178
+82,CREDITO,Santander Rio SA,123
+83,CREDITO,Santander Rio SA,10
+84,CREDITO,Provincia de Buenos aires,200
+85,CREDITO,Galicia,52
+86,CREDITO,Banco Piano,58
+87,CREDITO,Provincia de Buenos aires,17
+88,CREDITO,Galicia,41
+89,CREDITO,Banco Frances,24
+90,CREDITO,Provincia de Buenos aires,19
+91,DEBITO,Santander Rio SA,90
+92,CREDITO,Banco Frances,52
+93,DEBITO,Galicia,48
+94,DEBITO,Banco Nacion Argentina,3
+95,CREDITO,Galicia,46
+96,CREDITO,Galicia,141
+97,DEBITO,Santander Rio SA,46
+98,CREDITO,Provincia de Buenos aires,67
+99,DEBITO,Banco Frances,44
+100,DEBITO,Provincia de Buenos aires,58

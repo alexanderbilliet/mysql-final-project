@@ -1,0 +1,6 @@
+﻿ID_METODO_PAGO,METODO_DE_PAGO
+1,Efectivo 
+2,Tarjeta de Credito
+3,Tarjeta de Debito 
+4,Mercado Pago 
+5,Transferencia Bancaria

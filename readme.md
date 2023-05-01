@@ -151,7 +151,7 @@ It is the list of the products that our company sells. In this case, books. The 
 
 ![table producto](./img/Picture10.png)
 
-#### Bridge Table Pedido - Producto
+#### Table Pedido - Producto
 <!-- Use hyphens or underscores to separate words in the anchor link below -->
 <a name="bridge-table-pedido--producto"></a>
 
@@ -166,3 +166,14 @@ Since the relationship between ORDER and PRODUCT is many to many, a bridge table
 List of suppliers that sell products (books) to our company.
 
 ![table proveedor](./img/Picture12.png)
+
+### Data Insert
+<!-- Use hyphens or underscores to separate words in the anchor link below -->
+<a name="#data-insert"></a>
+
+<!-- Content of the section goes here -->
+Records in this project were inserted into the database using the MySQL Workbench "Table Data Import Wizard". 
+CSV flat files from which the records were imported are uploaded into this repository ([here](./csv_files/)). 
+Given the relationship between primary and foreign keys, the order of import should be as follows:
+
+![Data import order](./img/Picture13.png)

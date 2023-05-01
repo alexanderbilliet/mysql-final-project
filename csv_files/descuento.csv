@@ -1,0 +1,6 @@
+﻿ID_DESCUENTO,PORCENTAJE_DESCUENTO,NOMBRE_DESCUENTO,DESCRIPCION_DESCUENTO
+1,0.02,Descuento Cantidad,Pedidos que superan los 10 items 
+2,0.10,Descuento Dia del libro,Pedidos realizados el 23 de Abril
+3,0.05,Descuento Random,Descuentos que se aplica al azar sobre los pedidos
+4,0.15,Descuento Dia del padre,Descuentos a pedidos realizados en el dia del padre 19 de Junio 
+5,0.15,Descuento Dia de la madre,Descuentos a pedidos realizados en el dia de la madre 16 de octubre
