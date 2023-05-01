@@ -6,7 +6,7 @@ The original project was completed in Spanish. However, comments in English have
 
 Please feel free to reach out to me if you have any questions or comments. Thank you!
 
-## Index
+### Index
 
 - [Introduction to the subject, Objective, Problem Situation and Business Model](#introduction-to-the-subject-objective-problem-situation-and-business-model)
 - [Entity - Relationship Diagram](#entity-relationship-diagram)
@@ -49,7 +49,7 @@ Please feel free to reach out to me if you have any questions or comments. Thank
 - [Backup](#backup)
 
 
-## Introduction to the subject, Objective, Problem Situation and Business Model
+### Introduction to the subject, Objective, Problem Situation and Business Model
 <!-- Use hyphens or underscores to separate words in the anchor link below -->
 <a name="introduction-to-the-subject-objective-problem-situation-and-business-model"></a>
 
@@ -83,7 +83,7 @@ On top of this fundamental layer, other dimensions are added such as, for exampl
 
 This completed a database that correctly captures a simplified business model.
 
-## Entity - Relationship Diagram
+### Entity - Relationship Diagram
 
 
 <!-- Use hyphens or underscores to separate words in the anchor link below -->
